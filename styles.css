@@ -1,0 +1,267 @@
+/* Estilos generales */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+}
+
+body > section {
+  width: 95%;
+  height: 98%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  margin: auto;
+}
+
+.section_carrusel {
+  width: 100%;
+  height: 98%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 1fr;
+  margin-bottom: auto;
+}
+
+div {
+  border-radius: 10px;
+}
+
+.section_carrusel > div:first-child {
+  width: 100%;
+  height: 100%;
+  outline: 2px solid black;
+}
+
+.section_carrusel > div:last-child {
+  width: calc(100% - 10px);
+  height: 100%;
+  outline: 2px solid black;
+  margin-left: auto;
+}
+
+.section_more_info {
+  width: 100%;
+  height: 98%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 40%;
+  grid-template-rows: 1fr;
+  margin-top: auto;
+}
+
+.section_more_info > div {
+  width: calc(100% - 10px);
+  height: 100%;
+  outline: 2px solid black;
+}
+
+.section_more_info > div:nth-child(1), .section_more_info > div:nth-child(3) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  outline: none;
+}
+
+.inner_box {
+  width: 100%;
+  height: calc(100% - 5px);
+  outline: 2px solid black;
+  overflow: hidden;
+  margin-bottom: 0px;
+  border-radius: 10px;
+}
+
+.inner_box:last-child {
+  margin-top: 5px;
+}
+
+.section_more_info > article {
+  width: calc(100% - 10px);
+  height: 100%;
+  outline: 2px solid black;
+  margin-left: auto;
+  border-radius: 10px;
+}
+
+.section_more_info > div:nth-child(2), .section_more_info > div:nth-child(3) {
+  margin-inline: auto;
+}
+
+/* Media Queries para diferentes dispositivos */
+                                                                 
+
+/* Para pantallas grandes (computadoras) */
+@media (min-width: 1024px) {
+  .section_carrusel {
+    grid-template-columns: 70% 30%;
+  }
+  
+  .section_more_info {
+    grid-template-columns: 20% 20% 20% 40%;
+  }
+}
+
+/* Para tabletas en modo paisaje */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section_carrusel {
+    grid-template-columns: 60% 40%;
+  }
+  
+  .section_more_info {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+/* Para tabletas en modo retrato y teléfonos */
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  .section_carrusel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .section_carrusel > div:last-child {
+    margin-left: 0;
+  }
+
+  .section_more_info {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .section_more_info > div,
+  .section_more_info > article {
+    margin: 10px 0;
+  }
+}
+
+
+
+
+/*Carrusel*/
+.slider-box{
+
+width: 1280px;
+height: auto;
+margin: 0px auto  0;
+overflow: hidden;
+
+
+}
+
+.slider-box ul{
+
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-box li{
+
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+
+.slider-box img{
+width: 100%
+
+
+}
+
+
+@keyframes slide {
+  0% {margin-left: 0;}
+  25% {margin-left: 0;}
+  30% {margin-left: -100%;}
+  55% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  85% {margin-left: -200%;}
+  90% {margin-left: -300%;}
+  100% {margin-left: -300%;}
+}
+
+
+/* Estilos para el modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*light box*/
+/* Estilos para el lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.lightbox-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  background-color: #fff;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
